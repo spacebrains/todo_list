@@ -2,6 +2,7 @@ import Task from "./Task";
 
 export default class TaskWithSubTasks extends Task {
     public subTasks: Array<Task>;
+
     constructor(task = '') {
         super();
         this.task = task;
@@ -22,10 +23,10 @@ export default class TaskWithSubTasks extends Task {
         this.subTasks = this.subTasks.filter((t) => !t.finished);
     }
 
-    finishById(id){
-        this.subTasks=this.subTasks.map((t)=>{
-            if(+t.id===+id)
-                t.finished=!t.finished;
+    finishById(id) {
+        this.subTasks = this.subTasks.map((t) => {
+            if (+t.id === +id)
+                t.finished = !t.finished;
             return t;
         });
         this.allFinished();
@@ -36,6 +37,6 @@ export default class TaskWithSubTasks extends Task {
     }
 
     search(substring) {
-        return this.subTasks.filter((t) => t.task.toLowerCase().indexOf(substring.toLowerCase())+1)
+        return this.subTasks.filter((t) => t.task.toLowerCase().indexOf(substring.toLowerCase()) + 1)
     }
 }

@@ -2,26 +2,27 @@
     font-family: Ubuntu-Regular;
     src: url('https://fonts.googleapis.com/css?family=Ubuntu');
 }
+
 @font-face {
     font-family: Ubuntu-Bold;
     src: url('https://fonts.googleapis.com/css?family=Ubuntu:700');
 }
 
-*{
+* {
     font-family: 'Ubuntu-Regular', sans-serif;
 }
 
-.finished{
+.finished {
     text-decoration: line-through;
 }
 
-.notFinished{
+.notFinished {
     text-decoration: none;
 }
 
-button{
+button {
     background: #716ff3;
-    border:none;
+    border: none;
     border-radius: 3px;
     cursor: pointer;
     /*font*/
@@ -30,11 +31,11 @@ button{
     color: #fff;
 }
 
-#addTasks{
-    display:flex;
+#addTasks {
+    display: flex;
     align-items: center;
 }
 
-#addTasks *{
-    margin-right:4px;
+#addTasks * {
+    margin-right: 4px;
 }

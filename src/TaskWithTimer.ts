@@ -2,7 +2,8 @@ import Task from "./Task";
 
 export default class TaskWithTimer extends Task {
     public finalTime: Date;
-    constructor(task = '', finalTime: Date ) {
+
+    constructor(task = '', finalTime: Date) {
         super();
         this.task = task;
         this.finalTime = new Date(finalTime);

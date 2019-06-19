@@ -4,6 +4,7 @@ import TaskWithSubTasks from './TaskWithSubtasks'
 
 export default class TodoApp {
     public todos: Array<Task>;
+
     constructor() {
         this.todos = [];
         this.load();
@@ -44,10 +45,10 @@ export default class TodoApp {
         });
     }
 
-    finishById(id){
+    finishById(id) {
         this.todos = this.todos.map((t) => {
-            if(+t.id===+id)
-                t.finished=!t.finished;
+            if (+t.id === +id)
+                t.finished = !t.finished;
             else if (t instanceof TaskWithSubTasks)
                 t.finishById(id);
             return t;
@@ -63,12 +64,12 @@ export default class TodoApp {
     }
 
     search(substring) {
-        let result=[];
+        let result = [];
         this.todos.forEach((t) => {
-            if(t.task.toLowerCase().indexOf(substring.toLowerCase())+1)
+            if (t.task.toLowerCase().indexOf(substring.toLowerCase()) + 1)
                 result.push(t);
             if (t instanceof TaskWithSubTasks)
-                result=[...result,...t.search(substring)];
+                result = [...result, ...t.search(substring)];
 
         });
 
@@ -77,7 +78,7 @@ export default class TodoApp {
 
     save() {
         const todosForJson = this.todos.map((t) => {
-            const obj = {task: t.task, finished: t.finished, type: "", finalTime: null, subTasks:[]};
+            const obj = {task: t.task, finished: t.finished, type: "", finalTime: null, subTasks: []};
             if (t instanceof TaskWithTimer) {
                 obj.type = 'TaskWithTimer';
                 obj.finalTime = +t.finalTime;
@@ -90,7 +91,7 @@ export default class TodoApp {
                 obj.type = 'Task';
             return obj;
         });
-        localStorage['data']='';
+        localStorage['data'] = '';
         localStorage['data'] = JSON.stringify({todos: todosForJson});
     }
 

@@ -178,7 +178,7 @@ export default class View {
         const form = document.createElement('form');
         const inputText = document.createElement('input');
         inputText.type = 'text';
-        const inputDate = document.createElement('input') ;
+        const inputDate = document.createElement('input');
         inputDate.setAttribute('type', 'datetime-local');
         const button = document.createElement('button');
         button.innerText = 'add';
@@ -208,7 +208,7 @@ export default class View {
         radio.onchange = e => {
             div.innerHTML = '';
             const target = e.target as HTMLInputElement;
-            const parent=target.parentNode as HTMLLabelElement;
+            const parent = target.parentNode as HTMLLabelElement;
             const type = parent.dataset.type;
             let form;
             if (type === 'Task')
