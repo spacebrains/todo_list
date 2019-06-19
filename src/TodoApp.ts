@@ -3,6 +3,7 @@ import TaskWithTimer from './TaskWithTimer'
 import TaskWithSubTasks from './TaskWithSubtasks'
 
 export default class TodoApp {
+    public todos: Array<Task>;
     constructor() {
         this.todos = [];
         this.load();
@@ -29,7 +30,7 @@ export default class TodoApp {
         return newSubTask ? newSubTask : console.warn('not found task with id:' + id);
     }
 
-    addTaskWithTimer(task = '', finalTime = +new Date() + 1000) {
+    addTaskWithTimer(task = '', finalTime) {
         const newTaskWithTimer = new TaskWithTimer(task, finalTime);
         this.todos.push(newTaskWithTimer);
         return newTaskWithTimer;
@@ -76,10 +77,10 @@ export default class TodoApp {
 
     save() {
         const todosForJson = this.todos.map((t) => {
-            const obj = {task: t.task, finished: t.finished};
+            const obj = {task: t.task, finished: t.finished, type: "", finalTime: null, subTasks:[]};
             if (t instanceof TaskWithTimer) {
                 obj.type = 'TaskWithTimer';
-                obj.finalTime = t.finalTime;
+                obj.finalTime = +t.finalTime;
             } else if (t instanceof TaskWithSubTasks) {
                 obj.type = 'TaskWithSubTasks';
                 obj.subTasks = t.subTasks.map((subt) => {
