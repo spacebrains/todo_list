@@ -1,9 +1,15 @@
 import Task from "./Task";
 
-export default class TaskWithTimer extends Task{
-    constructor(task='',finalTime= +new Date()+1000){
+export default class TaskWithTimer extends Task {
+    constructor(task = '', finalTime = Date.now()) {
         super();
-        this.task=task;
-        this.finalTime=finalTime
+        this.task = task;
+        this.finalTime = new Date(finalTime);
+        this.isFinish();
+    }
+
+    isFinish() {
+        if (+new Date() > this.finalTime)
+            this.finished = true;
     }
 }

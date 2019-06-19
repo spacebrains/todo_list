@@ -1,31 +1,40 @@
 import Task from "./Task";
 
-export default class TaskWithSubTasks extends Task{
-    constructor(task=''){
+export default class TaskWithSubTasks extends Task {
+    constructor(task = '') {
         super();
-        this.task=task;
-        this.subTasks=[];
+        this.task = task;
+        this.subTasks = [];
     }
 
-    addSubTask(task=''){
-        const newTask = Task(task);
+    addSubTask(task = '') {
+        const newTask = new Task(task);
         this.subTasks.push(newTask);
         return newTask;
     }
 
-    remove(id){
-        this.subTasks=this.subTasks.filter((t)=>t.id !== +id);
+    remove(id) {
+        this.subTasks = this.subTasks.filter((t) => t.id !== +id);
     }
 
-    deleteFinished(){
-        this.subTasks=this.subTasks.filter((t)=> !t.finished);
+    deleteFinished() {
+        this.subTasks = this.subTasks.filter((t) => !t.finished);
     }
 
-    allFinished(){
-        this.finished=this.subTasks.every((t)=>t.finished);
+    finishById(id){
+        this.subTasks=this.subTasks.map((t)=>{
+            if(+t.id===+id)
+                t.finished=!t.finished;
+            return t;
+        });
+        this.allFinished();
     }
 
-    search(substring){
-        return this.todos.filter((t)=> t.task.toLowerCase().indexOf(substring.toLowerCase()))
+    allFinished() {
+        this.finished = this.subTasks.every((t) => t.finished);
+    }
+
+    search(substring) {
+        return this.subTasks.filter((t) => t.task.toLowerCase().indexOf(substring.toLowerCase())+1)
     }
 }

@@ -4,16 +4,30 @@
     <title>Document</title>
 </head>
 <body>
-<form>
-    <input type="text">
+<form id="search">
+    <input type="text" required>
+    <span>x</span>
     <button>search</button>
+    <link rel="stylesheet" href="src/style.css">
 </form>
-<ul id="taskList">
+<ul id="todos">
 </ul>
-<button>add</button>
-<button>delete completed</button>
-
-
+<form id="radio">
+    <label data-type="Task">
+        <input type="radio" name="add">
+        <span>Task</span>
+    </label>
+    <label data-type="TaskWithSubTasks">
+        <input type="radio" name="add">
+        <span>Task with SubTasks</span>
+    </label>
+    <label data-type="TaskWithTimer">
+        <input type="radio" name="add">
+        <span>Task With Timer</span>
+    </label>
+</form>
+<div id="addTasks"></div>
+<button id="deleteFinished">delete completed</button>
 <script src="dist/main.js"></script>
 </body>
 </html>

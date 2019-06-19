@@ -1,21 +1,7 @@
 import TodoApp from './TodoApp'
-
-const Todo = new TodoApp;
-console.log(Todo);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import View from './View'
+const Views = new View;
+console.log(Views);
 
 
 /*import TodoApp from './Todo'
