@@ -1,5 +1,25 @@
-import TodoApp from './todo'
-import {Task} from "./class";
+import TodoApp from './TodoApp'
+
+const Todo = new TodoApp;
+console.log(Todo);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import TodoApp from './Todo'
+import Task from "./Task";
 
 
 
@@ -66,5 +86,5 @@ view();
 
 Todo.addTask('1');
 console.log(Todo);
-view();
+view();*/
 
